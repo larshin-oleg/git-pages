@@ -1,0 +1,22 @@
+[user]
+	name = Egor Halimonenko
+	email = termi_uc@inbox.ru
+
+[alias]
+	fe = "fetch origin --prune"
+	g = "checkout"
+	go = "!f() { git fetch origin $1 --prune; git checkout $1; git merge --ff-only origin/$1 || git rebase --preserve-merges origin/$1;  }; f"
+	p = "!f() { git go $1 && git push origin $1; }; f"
+	m = "merge --no-commit --no-ff"
+	m2 = "merge --no-commit"
+	cp = "cherry-pick --no-commit"
+	new = "checkout -b"
+	l = "log --oneline --graph"
+	r = "!f() { git reset --soft; git add .; git stash; git stash drop; }; f"
+	rr = "reset --hard"
+	tag-rename = "!f() { git tag $2 $1; git tag -d $1; git push origin :refs/tags/$1; }; f"
+	pt = "push --tags"
+	cdiff-r = "!f() { git log origin/$1...$1; }; f"
+	cdiff = "!f() { git log $1...$2; }; f"
+	nm = "branch -r --no-merged"
+	bl = "blame -w"
